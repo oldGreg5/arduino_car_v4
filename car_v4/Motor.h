@@ -13,6 +13,7 @@ public:
 	Motor();
 	Motor(int motor_pins[]);
 	virtual ~Motor();
+	void go_fwd(int speed);
 };
 
 #endif /* MOTOR_H_ */

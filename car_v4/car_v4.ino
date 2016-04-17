@@ -20,13 +20,13 @@ int MOTOR_FL[] = { 13, 12, 11 };
 
 int LED = 13; // Use the onboard Uno LED
 const int SPD = 50;
-Motor motor_RR = Motor(MOTOR_RR);
-Motor motor_FR = Motor(MOTOR_FR);
-Motor motor_RL = Motor(MOTOR_RL);
-Motor motor_FL = Motor(MOTOR_FL);
 
 void setup() {
-
+	Motor motor_RR = Motor(MOTOR_RR);
+	Motor motor_FR = Motor(MOTOR_FR);
+	Motor motor_RL = Motor(MOTOR_RL);
+	Motor motor_FL = Motor(MOTOR_FL);
+	motor_RR.go_fwd(SPD);
 // Add your initialization code here
 }
 
