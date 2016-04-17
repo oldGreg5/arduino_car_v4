@@ -14,6 +14,7 @@ public:
 	Motor(int motor_pins[]);
 	virtual ~Motor();
 	void go_fwd(int speed);
+	void go_back(int speed);
 };
 
 #endif /* MOTOR_H_ */

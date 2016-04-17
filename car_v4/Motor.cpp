@@ -33,7 +33,7 @@ void Motor::go_fwd(int speed) {
 	digitalWrite(pin2, HIGH);
 }
 
-void go_back(int speed) {
+void Motor::go_back(int speed) {
 	analogWrite(pwm, speed); //set speed
 	digitalWrite(pin1, HIGH);
 	digitalWrite(pin2, LOW);
