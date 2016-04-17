@@ -1,4 +1,4 @@
-.ino.cpp.o: ../.ino.cpp \
+motor.cpp.o: ../Motor.cpp ../Motor.h \
  D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\cores\arduino/Arduino.h \
  D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\cores\arduino/binary.h \
  D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\cores\arduino/WCharacter.h \
@@ -9,8 +9,9 @@
  D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\cores\arduino/Printable.h \
  D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\cores\arduino/USBAPI.h \
  D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\cores\arduino/Arduino.h \
- D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\variants\standard/pins_arduino.h \
- ../car_v4.ino ../Motor.h
+ D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\variants\standard/pins_arduino.h
+
+../Motor.h:
 
 D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\cores\arduino/Arduino.h:
 
@@ -33,7 +34,3 @@ D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\cores\a
 D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\cores\arduino/Arduino.h:
 
 D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\variants\standard/pins_arduino.h:
-
-../car_v4.ino:
-
-../Motor.h:

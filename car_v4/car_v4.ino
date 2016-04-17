@@ -1,10 +1,11 @@
 #include "Arduino.h"
+#include "Motor.h"
 //define pins for motor driver {PIN1,PIN2,PWM}
 //const int MOTOR_RR1 = 2;
-const int MOTOR_RR[] = {2,4,3};
-const int MOTOR_FR[] = {5,7,6};
-const int MOTOR_RL[] = {8,10,9};
-const int MOTOR_FL[] = {13,12,11};
+int MOTOR_RR[] = { 2, 4, 3 };
+int MOTOR_FR[] = { 5, 7, 6 };
+int MOTOR_RL[] = { 8, 10, 9 };
+int MOTOR_FL[] = { 13, 12, 11 };
 //const int MOTOR_RR2 = 4;
 //const int PWM_RR = 3;
 //const int MOTOR_FR1 = 5;
@@ -19,8 +20,13 @@ const int MOTOR_FL[] = {13,12,11};
 
 int LED = 13; // Use the onboard Uno LED
 const int SPD = 50;
+Motor motor_RR = Motor(MOTOR_RR);
+Motor motor_FR = Motor(MOTOR_FR);
+Motor motor_RL = Motor(MOTOR_RL);
+Motor motor_FL = Motor(MOTOR_FL);
 
 void setup() {
+
 // Add your initialization code here
 }
 
