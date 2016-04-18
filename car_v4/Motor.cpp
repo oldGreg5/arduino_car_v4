@@ -8,10 +8,6 @@
 #include "Motor.h"
 #include <Arduino.h>
 
-int pwm = 0;
-int pin1 = 0;
-int pin2 = 0;
-
 Motor::Motor() {
 	// TODO Auto-generated destructor stub
 }
@@ -37,4 +33,15 @@ void Motor::go_back(int speed) {
 	analogWrite(pwm, speed); //set speed
 	digitalWrite(pin1, HIGH);
 	digitalWrite(pin2, LOW);
+}
+
+String Motor::printPins() {
+	String str;
+	str = pin1;
+	str += " ";
+	str += pin2;
+	str += " ";
+	str += pwm;
+	str += "\n";
+	return str;
 }

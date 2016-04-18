@@ -10,7 +10,7 @@
  D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\cores\arduino/USBAPI.h \
  D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\cores\arduino/Arduino.h \
  D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\variants\standard/pins_arduino.h \
- ../car_v4.ino ../Motor.h ../includes.h
+ ../car_v4.ino ../Motor.h ../includes.h ../Car4wd.h
 
 D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\cores\arduino/Arduino.h:
 
@@ -39,3 +39,5 @@ D:\dev\eclipseArduino\arduinoPlugin\packages\arduino\hardware\avr\1.6.10\variant
 ../Motor.h:
 
 ../includes.h:
+
+../Car4wd.h:

@@ -1,6 +1,7 @@
 #include "Arduino.h"
 #include "Motor.h"
 #include "includes.h"
+#include "Car4wd.h"
 //define pins for motor driver {PIN1,PIN2,PWM}
 //const int MOTOR_RR1 = 2;
 //int MOTOR_RR[] = { 2, 4, 3 };
@@ -21,19 +22,56 @@
 
 int LED = 13; // Use the onboard Uno LED
 const int SPD = 100;
+//Motor motors[4] = { };
+//Motor FL = Motor(MOTOR_FL);
+//Motor FR = Motor(MOTOR_FR);
+//Motor RL = Motor(MOTOR_RL);
+//Motor RR = Motor(MOTOR_RR);
+
+Motor motors[] = { Motor(MOTOR_FL), Motor(MOTOR_FR), Motor(MOTOR_RL), Motor(
+		MOTOR_RR) };
 
 void setup() {
-	Motor motor_RR = Motor(MOTOR_RR);
-	Motor motor_FR = Motor(MOTOR_FR);
-	Motor motor_RL = Motor(MOTOR_RL);
-	Motor motor_FL = Motor(MOTOR_FL);
-//	motor_RR.go_fwd(SPD);
+	Serial.begin(9600);      // open the serial port at 9600 bps
 
-// Add your initialization code here
+	Car_4wd car = Car_4wd(motors);
+
+//	Serial.println();
+//	Serial.print(Motor(MOTOR_FL).printPins());
+//	Serial.print(Motor(MOTOR_FR).printPins());
+//	Serial.print(Motor(MOTOR_RL).printPins());
+//	Serial.print(Motor(MOTOR_RR).printPins());
+
+	Serial.println();
+	Serial.print(motors[0].printPins());
+	Serial.print(motors[1].printPins());
+	Serial.print(motors[2].printPins());
+	Serial.print(motors[3].printPins());
+
+//	Serial.println();
+//	Serial.print(FL.printPins());
+//	Serial.print(FR.printPins());
+//	Serial.print(RL.printPins());
+//	Serial.print(RR.printPins());
+
+	car.go_forward(100);
+//	Motor motor_FL = Motor(MOTOR_FL);
+//	Motor motor_FR = Motor(MOTOR_FR);
+//	Motor motor_RL = Motor(MOTOR_RL);
+//	Motor motor_RR = Motor(MOTOR_RR);
+
+//	car = ;
+
 }
 
-// The loop function is called in an endless loop
 void loop() {
+//	for (int i = 0; i < 4; i++) {
+//		Serial.print(i);
+//		Serial.print(motors[i].printPins());
+//	}
+//	Serial.print(motors[4].printPins());
+//	Serial.print(MOTOR_RL[0]);
+	delay(2000);
 //	analogWrite(PWM_FL, SPD); //right motor
 //	digitalWrite(LED, HIGH);
 //	digitalWrite(MOTOR_FL1, LOW);
@@ -75,6 +113,5 @@ void loop() {
 }
 
 void go_forward(int speed) {
-//	motor_RR.go_fwd(speed);
 
 }
