@@ -2,6 +2,8 @@
 #include "Motor.h"
 #include "includes.h"
 #include "Car4wd.h"
+#include "IRremote.h"
+#include "IRremoteInt.h"
 //define pins for motor driver {PIN1,PIN2,PWM}
 //const int MOTOR_RR1 = 2;
 //int MOTOR_RR[] = { 2, 4, 3 };
@@ -33,6 +35,7 @@ Motor motors[] = { Motor(MOTOR_FL), Motor(MOTOR_FR), Motor(MOTOR_RL), Motor(
 
 void setup() {
 	Serial.begin(9600);      // open the serial port at 9600 bps
+	irRecv.enableIRIn(); // Start the receiver
 
 	Car_4wd car = Car_4wd(motors);
 
@@ -42,11 +45,11 @@ void setup() {
 //	Serial.print(Motor(MOTOR_RL).printPins());
 //	Serial.print(Motor(MOTOR_RR).printPins());
 
-	Serial.println();
-	Serial.print(motors[0].printPins());
-	Serial.print(motors[1].printPins());
-	Serial.print(motors[2].printPins());
-	Serial.print(motors[3].printPins());
+//	Serial.println();
+//	Serial.print(motors[0].printPins());
+//	Serial.print(motors[1].printPins());
+//	Serial.print(motors[2].printPins());
+//	Serial.print(motors[3].printPins());
 
 //	Serial.println();
 //	Serial.print(FL.printPins());
@@ -54,7 +57,7 @@ void setup() {
 //	Serial.print(RL.printPins());
 //	Serial.print(RR.printPins());
 
-	car.go_forward(100);
+//	car.go_left(100);
 //	Motor motor_FL = Motor(MOTOR_FL);
 //	Motor motor_FR = Motor(MOTOR_FR);
 //	Motor motor_RL = Motor(MOTOR_RL);
@@ -65,6 +68,21 @@ void setup() {
 }
 
 void loop() {
+	int decodedSignal = 106;
+
+	//something recived from IR
+	if (irRecv.decode(&results)) {
+		Serial.print("dupa");
+		long int decCode = results.value;
+		String hexString = String(decCode, HEX);
+		//        Serial.println(hexString);
+		decodedSignal = decodeIrSignal(hexString);
+
+		Serial.print(lastIrInput);
+		Serial.print("|");
+		Serial.print(decodedSignal);
+
+	}
 //	for (int i = 0; i < 4; i++) {
 //		Serial.print(i);
 //		Serial.print(motors[i].printPins());
@@ -112,6 +130,6 @@ void loop() {
 	//Add your repeated code here
 }
 
-void go_forward(int speed) {
-
-}
+//void go_forward(int speed) {
+//
+//}
