@@ -10,12 +10,19 @@
 #ifndef INCLUDES_H_
 #define INCLUDES_H_
 
-const int IR_REMOTE = 13;
+const int IR_REMOTE = A5;
 
-int MOTOR_FL[] = { 13, 12, 11 };
-int MOTOR_FR[] = { 5, 7, 6 };
-int MOTOR_RL[] = { 8, 10, 9 };
 int MOTOR_RR[] = { 2, 4, 3 };
+int MOTOR_FL[] = { 13, 12, 5 };
+//int MOTOR_RL[] = { 5, 7, 6 };
+int MOTOR_RL[] = { 8, 10, 9 };
+int MOTOR_FR[] = { 11, 7, 6 };
+
+//int MOTOR_FL[] = { 13, 12, 11 };
+////int MOTOR_FL[] = { 13, 12, 11 };
+//int MOTOR_RL[] = { 5, 7, 6 };
+//int MOTOR_RR[] = { 8, 10, 9 };
+//int MOTOR_FR[] = { 2, 4, 3 };
 
 IRrecv irRecv(IR_REMOTE);
 decode_results results;

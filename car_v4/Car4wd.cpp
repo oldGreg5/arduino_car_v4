@@ -49,6 +49,14 @@ void Car_4wd::go_forward(int speed) {
 	MOTOR_RR.go_fwd(speed);
 }
 
+void Car_4wd::go_backward(int speed) {
+//	Serial.print("h*");
+	MOTOR_FL.go_back(speed);
+	MOTOR_FR.go_back(speed);
+	MOTOR_RL.go_back(speed);
+	MOTOR_RR.go_back(speed);
+}
+
 void Car_4wd::go_right(int speed) {
 //	Serial.print("h*");
 	MOTOR_FL.go_fwd(speed);
@@ -59,8 +67,10 @@ void Car_4wd::go_right(int speed) {
 
 void Car_4wd::go_left(int speed) {
 //	Serial.print("h*");
-	MOTOR_FL.go_back(speed / 2);
+//	MOTOR_FL.go_back(speed / 2);
+	MOTOR_FL.go_back(speed * 0.6);
 	MOTOR_FR.go_fwd(speed);
-	MOTOR_RL.go_back(speed / 2);
+//	MOTOR_RL.go_back(speed / 2);
+	MOTOR_RL.go_back(speed * 0.6);
 	MOTOR_RR.go_fwd(speed);
 }

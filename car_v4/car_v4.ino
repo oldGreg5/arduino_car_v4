@@ -33,11 +33,11 @@ const int SPD = 100;
 Motor motors[] = { Motor(MOTOR_FL), Motor(MOTOR_FR), Motor(MOTOR_RL), Motor(
 		MOTOR_RR) };
 
+Car_4wd car = Car_4wd(motors);
+
 void setup() {
 	Serial.begin(9600);      // open the serial port at 9600 bps
 	irRecv.enableIRIn(); // Start the receiver
-
-	Car_4wd car = Car_4wd(motors);
 
 //	Serial.println();
 //	Serial.print(Motor(MOTOR_FL).printPins());
@@ -69,10 +69,10 @@ void setup() {
 
 void loop() {
 	int decodedSignal = 106;
-
+	lastIrInput = 0;
 	//something recived from IR
 	if (irRecv.decode(&results)) {
-		Serial.print("dupa");
+//		Serial.print("dupa");
 		long int decCode = results.value;
 		String hexString = String(decCode, HEX);
 		//        Serial.println(hexString);
@@ -80,9 +80,18 @@ void loop() {
 
 		Serial.print(lastIrInput);
 		Serial.print("|");
-		Serial.print(decodedSignal);
+		Serial.println(decodedSignal);
+
+		irRecv.resume(); // Receive the next value
+		lastIrInput = decodedSignal;
 
 	}
+	Motor motor = Motor(MOTOR_FR);
+	motor.go_fwd(115);
+//	car.go_forward(255);
+//	car.go_backward(255);
+//	car.go_left(255);
+//	car.go_right(255);
 //	for (int i = 0; i < 4; i++) {
 //		Serial.print(i);
 //		Serial.print(motors[i].printPins());
