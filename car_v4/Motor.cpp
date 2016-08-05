@@ -23,15 +23,20 @@ Motor::~Motor() {
 	// TODO Auto-generated destructor stub
 }
 
-void Motor::go_fwd(int speed) {
+void Motor::goFwd(int speed) {
 	analogWrite(pwm, speed); //set speed
 	digitalWrite(pin1, LOW);
 	digitalWrite(pin2, HIGH);
 }
 
-void Motor::go_back(int speed) {
+void Motor::goBack(int speed) {
 	analogWrite(pwm, speed); //set speed
 	digitalWrite(pin1, HIGH);
+	digitalWrite(pin2, LOW);
+}
+
+void Motor::stop() {
+	digitalWrite(pin1, LOW);
 	digitalWrite(pin2, LOW);
 }
 

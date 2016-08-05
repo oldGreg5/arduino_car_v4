@@ -12,10 +12,10 @@
 
 const int IR_REMOTE = A5;
 
-int MOTOR_RR[] = { 2, 4, 3 };
+int MOTOR_RR[] = { 2, 4, 10 };
 int MOTOR_FL[] = { 13, 12, 5 };
 //int MOTOR_RL[] = { 5, 7, 6 };
-int MOTOR_RL[] = { 8, 10, 9 };
+int MOTOR_RL[] = { 8, 3, 9 };
 int MOTOR_FR[] = { 11, 7, 6 };
 
 //int MOTOR_FL[] = { 13, 12, 11 };
@@ -26,7 +26,7 @@ int MOTOR_FR[] = { 11, 7, 6 };
 
 IRrecv irRecv(IR_REMOTE);
 decode_results results;
-int lastIrInput = 100;
+int lastCorrectIrInput = 100;
 
 int decodeIrSignal(String hexCode) {
 	hexCode.toUpperCase();
@@ -38,8 +38,8 @@ int decodeIrSignal(String hexCode) {
 		return 2; //up
 	if (hexCode == "FD9867" || hexCode == "57E346E1" || hexCode == "C4FFB646")
 		return 3; //down
-	if (hexCode == "6BDD79E6" || hexCode == "6CC8C5EA" || hexCode == "FD30CF")
-		return 4; //play song
+//	if (hexCode == "6BDD79E6" || hexCode == "6CC8C5EA" || hexCode == "FD30CF")
+//		return 4; //play song
 
 	Serial.println(hexCode);
 	return 666;

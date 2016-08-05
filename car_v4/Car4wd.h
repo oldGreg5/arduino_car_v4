@@ -14,10 +14,15 @@ class Car_4wd {
 public:
 	Car_4wd(Motor motors[]);
 	virtual ~Car_4wd();
-	void go_forward(int speed);
-	void go_backward(int speed);
-	void go_left(int speed);
-	void go_right(int speed);
+	void goFwd(int speed);
+	void goReverse(int speed);
+	void left(int speed);
+	void right(int speed);
+	void fwdLeft(int speed);
+	void fwdRight(int speed);
+	void backLeft(int speed);
+	void backRight(int speed);
+	void stop();
 };
 
 #endif /* CAR4WD_H_ */

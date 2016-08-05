@@ -13,8 +13,9 @@ public:
 	Motor();
 	Motor(int motor_pins[]);
 	virtual ~Motor();
-	void go_fwd(int speed);
-	void go_back(int speed);
+	void goFwd(int speed);
+	void goBack(int speed);
+	void stop();
 	String printPins();
 	int pwm;
 	int pin1;
